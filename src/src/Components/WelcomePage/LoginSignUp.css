@@ -19,27 +19,6 @@
     width: 100%; /* Full width of the parent container */
     gap: 1em; /* Space between input fields */
 }
-  
-.input {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 0.5em; /* Rounded corners for input fields */
-    padding: 0.5em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for input fields */
-}
-  
-input {
-    border: none;
-    margin-left: 1em;
-    width: 100%; /* Full width of the parent .input container */
-    font-size: 1em;
-}
-  
-input:focus {
-    outline: none; /* Removes the default focus outline */
-    box-shadow: 0 0 0 2px #2A00B7; /* Custom focus style */
-}
  
 .header-with-toggle {
     display: flex;

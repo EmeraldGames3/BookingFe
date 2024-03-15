@@ -8,6 +8,7 @@ import WelcomeHeader from './WelcomePageHeader/WelcomeHeader'
 import ForgotPassword from './ForgotPassword/ForgotPassword'
 import SubmitButton from './SubmitButton/SubmitButton'
 import ToggleButton from './ToggleButton/ToggleButton'
+import Input from './Input/Input'
 
 export default function LoginSignUp() {
     const [action, setAction] = useState('Sign Up');
@@ -19,19 +20,10 @@ export default function LoginSignUp() {
                 <ToggleButton action={action} setAction={setAction} />
             </div>
             <div className='inputs'>
-                <div className='input'>
-                    <img src={person} alt=''/>
-                    <input type='text'/>
-                </div>
+                <Input type='text' placeholder='UserName' img={person}/>
                 {action === 'Sign Up' && 
-                <div className='input'>
-                    <img src={email} alt=''/>
-                    <input type='email'/>
-                </div>}
-                <div className='input'>
-                    <img src={password} alt=''/>
-                    <input type='password'/>
-                </div>
+                <Input type='email' placeholder='Email' img={email}/>}
+                <Input type='password' placeholder='********' img={password}/>
             </div>
 
             {action === 'Log In' && <ForgotPassword/>}
