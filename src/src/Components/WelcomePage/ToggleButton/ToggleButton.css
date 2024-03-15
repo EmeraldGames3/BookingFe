@@ -1,0 +1,22 @@
+.toggle-btn {
+    position: absolute;
+    top: 1.5rem; /* Adjusted for better alignment */
+    right: 1.5rem; /* Adjusted for better alignment */
+    padding: 0.5rem 1rem; /* Adjust padding as necessary */
+    border: none;
+    background-color: #a839c9;
+    color: white;
+    border-radius: 20px; /* Changed from percentage to pixels for consistency */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem; /* Add font size if necessary */
+    z-index: 10; /* Ensure the button is above other elements */
+}
+
+.toggle-btn.active {
+    background-color: #4c4177;
+}
+
+.toggle-btn:hover {
+    background-color: #524ec2;
+}

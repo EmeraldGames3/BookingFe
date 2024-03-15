@@ -1,15 +1,16 @@
 .container {
+    position: relative; /* This is necessary for absolute positioning inside the container */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centering children horizontally */
-    justify-content: center; /* Centering children vertically */
-    margin: 10vh auto; /* Margin top as viewport height percentage */
-    background: #f9f9fb; /* Soft background color */
-    padding: 5vh 2.5vw; /* Padding relative to the viewport */
-    border-radius: 1em; /* Rounded corners */
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 80vw; /* Width relative to viewport width */
-    max-width: 40em; /* Max width to maintain form proportions */
+    align-items: center;
+    justify-content: center;
+    margin: 10vh auto;
+    background: #f9f9fb;
+    padding: 5vh 2.5vw;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+    width: 80vw;
+    max-width: 40em; /* The max-width of the container should be set to define its actual size */
 }
   
 .inputs {
@@ -39,42 +40,13 @@ input:focus {
     outline: none; /* Removes the default focus outline */
     box-shadow: 0 0 0 2px #2A00B7; /* Custom focus style */
 }
-  
-.forgot-password {
-    color: #2A00B7;
-    font-size: 0.9em;
-    text-align: center;
-    margin-top: 1vh;
-    cursor: pointer;
-}
-  
-.forgot-password span {
-    text-decoration: underline;
-    font-weight: bold;
-}
-  
-.submit-container {
+ 
+.header-with-toggle {
     display: flex;
-    justify-content: space-around;
-    width: 100%; /* Full width of the parent container */
-    margin-top: 2vh;
+    justify-content: space-between;
+    align-items: center;
 }
-  
-.submit {
-    background: #2A00B7;
-    color: white;
-    padding: 1em 2em;
-    border-radius: 0.5em; /* Rounded corners for buttons */
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-  
-.submit:hover {
-    background: #210094; /* Darker shade on hover */
-}
-  
+
 /* Media query for smaller screens to ensure usability */
 @media (max-width: 600px) {
    .container {
