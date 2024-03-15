@@ -1,0 +1,19 @@
+.header {
+    margin-bottom: 3vh;
+}
+
+.text {
+    color: #2A00B7;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+  
+.underline {
+    align-self: center;
+    width: 100%;
+    height: 0.1em;
+    background: #2A00B7;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
