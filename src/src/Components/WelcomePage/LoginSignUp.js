@@ -49,9 +49,13 @@ export default function LoginSignUp() {
                 const response = await api.post('/user/', { email, name: username, password });
                 //console.log(response.data);
 
+                // Obtain the token
+                const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
+
                 // Log in the user data in the AuthContext
                 setAuth({
-                    user: response.data, // Assuming 'response.data' contains the user information
+                    token: token, // 'token' contains the Firebase Auth ID token
+                    user: response.data,
                     isLoggedIn: true,
                   });
 
@@ -79,22 +83,13 @@ export default function LoginSignUp() {
                 // Obtain the token
                 const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
 
-                 // Send the token to your backend
-                const backendResponse = await api.post('/login', {
-                    token, // Send the token as part of the request body or as a header
-                });
-             
-                // Here, you can check the backendResponse if needed
-                console.log(backendResponse.data); // Log or handle the response data as needed
-
-
                 // Log in the user data in the AuthContext
                 setAuth({
+                    token: token, // 'token' contains the Firebase Auth ID token
                     user: userCredential.user, // 'userCredential.user' contains the user information
                     isLoggedIn: true,
                 });
                     
-
                 //Redirect to main page after successful log in
                 navigate('/main');
             } catch (error) {
