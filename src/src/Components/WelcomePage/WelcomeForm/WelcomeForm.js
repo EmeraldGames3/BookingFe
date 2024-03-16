@@ -9,6 +9,7 @@ import './WelcomeForm.css';
 const WelcomeForm = ({ action, username, handleUsernameChange, email, handleEmailChange, password, handlePasswordChange, handleSubmit }) => {
   return (
     <form className='inputs' onSubmit={handleSubmit}>
+      {action === 'Sign Up' && (
       <Input
         type='text'
         placeholder='Username'
@@ -16,7 +17,7 @@ const WelcomeForm = ({ action, username, handleUsernameChange, email, handleEmai
         onChange={handleUsernameChange}
         value={username}
       />
-      {action === 'Sign Up' && (
+      )}
         <Input
           type='email'
           placeholder='Email'
@@ -24,7 +25,6 @@ const WelcomeForm = ({ action, username, handleUsernameChange, email, handleEmai
           onChange={handleEmailChange}
           value={email}
         />
-      )}
       <Input
         type='password'
         placeholder='********'
