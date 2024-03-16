@@ -1,0 +1,15 @@
+.mapClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* make sure it takes the full height of its container */
+    width: 100%; /* make sure it takes the full width of its container */
+}
+
+.MapImage {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* This will ensure that the aspect ratio is maintained and the image is scaled to fit */
+    margin-left: 2px solid #000;
+}
+

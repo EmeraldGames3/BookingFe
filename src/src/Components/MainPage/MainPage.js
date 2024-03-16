@@ -5,6 +5,7 @@ import LogoutButton from './LogOutButton/LogOutButton';
 import { AuthContext } from '../../Context/AuthProvider'
 import logo from '../Assets/mhp-logo.png';
 import FooterComponent from './FooterComponent/FooterComponent';
+import Map from './Map/Map';
 
 const getCurrentTimeForInput = () => {
     const now = new Date();
@@ -63,7 +64,7 @@ export default function MainPage() {
             </div>
             <LogoutButton onLogout={handleLogout} />
             <div className="floor-plan-container">
-                {/* Desk components will go here */}
+                <Map />
             </div>
             <FooterComponent
                 startTime={startTime}
