@@ -76,26 +76,24 @@ export default function LoginSignUp() {
                 }
 
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                //console.log(userCredential);
+                // Obtain the token
+                const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
+
+                 // Send the token to your backend
+                const backendResponse = await api.post('/login', {
+                    token, // Send the token as part of the request body or as a header
+                });
+             
+                // Here, you can check the backendResponse if needed
+                console.log(backendResponse.data); // Log or handle the response data as needed
+
 
                 // Log in the user data in the AuthContext
                 setAuth({
                     user: userCredential.user, // 'userCredential.user' contains the user information
                     isLoggedIn: true,
-                  });
-
-                // Extract user details
-                const { user } = userCredential;
-                const { uid, email: userEmail } = user;
-                    
-                // Here, send the necessary information to your backend
-                const backendResponse = await api.post('/login', {
-                    uid,
-                    email: userEmail,
                 });
-            
-                // Check backend response, if needed
-                console.log(backendResponse.data);
+                    
 
                 //Redirect to main page after successful log in
                 navigate('/main');
