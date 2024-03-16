@@ -84,6 +84,19 @@ export default function LoginSignUp() {
                     isLoggedIn: true,
                   });
 
+                // Extract user details
+                const { user } = userCredential;
+                const { uid, email: userEmail } = user;
+                    
+                // Here, send the necessary information to your backend
+                const backendResponse = await api.post('/login', {
+                    uid,
+                    email: userEmail,
+                });
+            
+                // Check backend response, if needed
+                console.log(backendResponse.data);
+
                 //Redirect to main page after successful log in
                 navigate('/main');
             } catch (error) {
