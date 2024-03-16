@@ -1,0 +1,29 @@
+.logout-container {
+    position: absolute; /* Position it relative to the MainPage container */
+    top: 2vh; /* Spacing from the top relative to viewport height */
+    right: 2vw; /* Spacing from the right relative to viewport width */
+    background-color: #ffffff; /* White background for visibility */
+    border-radius: 0.5em; /* Rounded corners for the container */
+    box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.logout-button {
+    font-size: 1em; /* Scalable font size */
+    padding: 0.5em 1em; /* Scalable padding inside the button */
+    border: none; /* No border for the button */
+    background-color: #3498db; /* Blueish background color */
+    color: white; /* White text color */
+    border-radius: 0.5em; /* Slightly rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Bold font for the text */
+    outline: none; /* Remove the outline to keep styling neat */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.logout-button:hover {
+    background-color: #2980b9; /* Slightly darker shade of blue on hover */
+}
+
+.logout-button:focus {
+    outline: none; /* Remove outline to keep styling neat on focus */
+}

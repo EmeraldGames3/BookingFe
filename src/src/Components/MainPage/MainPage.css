@@ -1,0 +1,27 @@
+.container {
+    position: relative; /* This is necessary for absolute positioning inside the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10vh auto;
+    background: #f9f9fb;
+    padding: 5vh 2.5vw;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+    width: 80vw;
+    max-width: 40em; /* The max-width of the container should be set to define its actual size */
+}
+
+.floor-plan-container {
+    background-color: #f3f3f3; /* Light grey background for the floor plan area */
+    border-radius: 2vw; /* Rounded edges */
+    margin-top: 2vh; /* Space from the header, scaled to viewport height */
+    width: 100%; /* Full width of the container */
+    height: 50vh; /* Height relative to the height of the viewport */
+    display: flex; /* Using flexbox for internal desk layout */
+    flex-wrap: wrap; /* Allowing multiple lines of desks */
+    align-items: center; /* Centering desks vertically */
+    justify-content: space-around; /* Spacing out desks evenly */
+    padding: 2vw; /* Space inside the floor plan area relative to viewport width */
+}

@@ -60,6 +60,12 @@ export default function LoginSignUp() {
         else {
             // Log In logic
             try {
+                if (!email || !password) {
+                    console.error('Email and password are required');
+                    setErrorMessage('Email and password are required');
+                    setShowError(true);
+                }
+
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 console.log(userCredential);
                 // TODO: Log in the user data in the AuthContext
