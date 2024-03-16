@@ -1,9 +1,13 @@
-import './SubmitButton.css'
+import './SubmitButton.css';
 
-export default function renderSubmitButtons(action) {
+const SubmitButton = ({ action }) => {
     return (
         <div className='submit-container'>
-            <div className='submit'>{action.action}</div>
+            <button type="submit" className='submit'>
+                {action}
+            </button>
         </div>
     );
-}
+};
+
+export default SubmitButton;
