@@ -1,16 +1,12 @@
 import React from 'react'
 import './LoginSignUp.css'
-import emailIcon from '../Assets/email.png'
-import personIcon from '../Assets/person.png'
-import passwordIcon from '../Assets/password.png'
 import { useState } from 'react'
 import WelcomeHeader from './WelcomePageHeader/WelcomeHeader'
 import ForgotPassword from './ForgotPassword/ForgotPassword'
-import SubmitButton from './SubmitButton/SubmitButton'
 import ToggleButton from './ToggleButton/ToggleButton'
-import Input from './Input/Input'
 import api from '../../Api/axios'
 import ErrorPopup from '../ErrorPopup/ErrorPopup'
+import WelcomeForm from './WelcomeForm/WelcomeForm'
 
 export default function LoginSignUp() {
     // State hooks for input fields
@@ -69,32 +65,16 @@ export default function LoginSignUp() {
                 <WelcomeHeader action={action}/>
                 <ToggleButton action={action} setAction={setAction} />
             </div>
-            <form className='inputs' onSubmit={handleSubmit}>
-                <Input
-                    type='text'
-                    placeholder='UserName'
-                    img={personIcon} 
-                    onChange={handleUsernameChange}
-                    value={username}
+                <WelcomeForm
+                    action={action}
+                    username={username}
+                    handleUsernameChange={handleUsernameChange}
+                    email={email}
+                    handleEmailChange={handleEmailChange}
+                    password={password}
+                    handlePasswordChange={handlePasswordChange}
+                    handleSubmit={handleSubmit}
                 />
-                {action === 'Sign Up' && (
-                    <Input
-                        type='email'
-                        placeholder='Email'
-                        img={emailIcon} 
-                        onChange={handleEmailChange}
-                        value={email}
-                    />
-                )}
-                <Input
-                    type='password'
-                    placeholder='********'
-                    img={passwordIcon} 
-                    onChange={handlePasswordChange}
-                    value={password}
-                />
-                <SubmitButton action={action}/>
-            </form>
             {action === 'Log In' && <ForgotPassword/>}
         </div>
         </>

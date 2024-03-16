@@ -12,13 +12,6 @@
     width: 80vw;
     max-width: 40em; /* The max-width of the container should be set to define its actual size */
 }
-  
-.inputs {
-    display: flex;
-    flex-direction: column;
-    width: 100%; /* Full width of the parent container */
-    gap: 1em; /* Space between input fields */
-}
  
 .header-with-toggle {
     display: flex;
