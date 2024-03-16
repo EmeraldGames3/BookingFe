@@ -9,9 +9,11 @@ import ErrorPopup from '../ErrorPopup/ErrorPopup'
 import WelcomeForm from './WelcomeForm/WelcomeForm'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import {app} from '../../Firebase/FirebaseConfig'
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginSignUp() {
     const auth = getAuth(app);
+    const navigate = useNavigate();
     // State hooks for input fields
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -43,7 +45,9 @@ export default function LoginSignUp() {
                 const response = await api.post('/user/', { email, name: username, password });
                 console.log(response.data);
                 // TODO: Log in the user data in the AuthContext
-                // TODO: Handle the successful sign up (e.g., navigate to the login page or dashboard)
+                
+                //Redirect to main page after successful sign up
+                navigate('/main');
             } catch (error) {
                 console.error('Error in sign up:', error.response);
                 const message = error.response && error.response.data && error.response.data.detail 
@@ -59,7 +63,9 @@ export default function LoginSignUp() {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 console.log(userCredential);
                 // TODO: Log in the user data in the AuthContext
-                // Handle the successful login (e.g., navigate to the dashboard)
+                
+                //Redirect to main page after successful log in
+                navigate('/main');
             } catch (error) {
                 console.error('Error in log in:', error);
                 const message = error.code && error.message ? error.message : 'An unexpected error occurred.';
