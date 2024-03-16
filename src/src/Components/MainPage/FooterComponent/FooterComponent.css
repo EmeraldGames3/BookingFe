@@ -1,0 +1,94 @@
+.footer-container {
+    width: calc(100% - 5vw); /* Subtract the left and right padding from the total width */
+    margin: 2vh auto 0; /* Space from the top, auto margins on the sides */
+    background: #eff0f4; /* Slightly different color for distinction */
+    border-radius: 1em; /* Rounded corners */
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    padding: 1em; /* Adjusted padding */
+    display: flex; /* Use flexbox to lay out the children in a row */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Align the items vertically */
+    padding: 1em 2em; /* Add padding to the left and right inside the container */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.footer-container .time-selection-container,
+.footer-container .number-input-container {
+    margin-right: 1em; /* Consistent margin for each item */
+    flex: 1; /* Flex grow to fill the space */
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the items in the available space */
+    align-items: center; /* Align items vertically */
+    flex: 1 1 auto; /* Allow the items to grow and shrink as needed */
+}
+
+.footer-container label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc; /* Light border for the labels */
+    background-color: #f2f2f2; /* Slightly different background color for the labels */
+    border-radius: 0.5em; /* Rounded corners for the labels */
+    padding: 0.5em; /* Padding inside the labels */
+    width: 100%; /* Labels take full width of their container */
+    box-sizing: border-box; /* Border and padding included in width */
+    margin: 0 1em; /* Add horizontal margin to each label */
+    width: auto; /* Allow the labels to size according to content and padding */
+}
+
+.footer-container input[type="time"],
+.footer-container input[type="number"] {
+    width: 80%; /* Input takes full width of label container */
+    padding: 0.5em; /* Padding inside the input */
+    margin: auto;
+    border-radius: 0.3em; /* Slightly rounded corners for the input */
+    border: 1px solid #ccc; /* Restored border for the input */
+}
+
+/* Adjust input styles to remove default browser styles */
+.footer-container input[type="time"]:focus,
+.footer-container input[type="number"]:focus {
+    outline: none; /* Remove default focus outline */
+    width: 100%; /* Ensure inputs do not exceed the width of their label container */
+}
+
+/* Reserve button styling */
+.reserve-button {
+    padding: 1em 1.5em; /* Increased padding for a taller button */
+    font-size: 1em; /* Adjusted font size */
+    border: 2px solid #3498db; /* Solid border that fits the theme */
+    background-color: #3498db; /* Button color */
+    color: white; /* Text color */
+    border-radius: 0.5em; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition for interactive effect */
+    margin-left: auto; /* Align the button to the right */
+    margin-right: 2em; /* Add right margin to create a gap */
+}
+
+.reserve-button:hover {
+    background-color: #2980b9; /* Darker shade for interactive effect */
+    border-color: #2980b9;
+}
+
+.reserve-button:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column; /* Stack the inputs on smaller screens */
+        align-items: stretch; /* Stretch items to the full width */
+        padding: 1em; /* Adjust padding for smaller screens */
+    }
+    .footer-container .time-selection-container,
+    .footer-container .number-input-container,
+    .footer-container .reserve-button {
+        width: auto; /* Allow the width to auto-adjust on small screens */
+        margin: 0.5em 0; /* Adjust margins for smaller screens */
+    }
+    .footer-container label {
+        width: auto; /* Allow labels to auto-adjust their width on small screens */
+    }
+}

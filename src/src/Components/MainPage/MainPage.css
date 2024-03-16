@@ -1,4 +1,4 @@
-.container {
+.container_mainPage {
     position: relative; /* This is necessary for absolute positioning inside the container */
     display: flex;
     flex-direction: column;
@@ -9,8 +9,7 @@
     padding: 5vh 2.5vw;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-    width: 80vw;
-    max-width: 40em; /* The max-width of the container should be set to define its actual size */
+    max-width: 100em; /* The max-width of the container should be set to define its actual size */
 }
 
 .floor-plan-container {
@@ -24,4 +23,23 @@
     align-items: center; /* Centering desks vertically */
     justify-content: space-around; /* Spacing out desks evenly */
     padding: 2vw; /* Space inside the floor plan area relative to viewport width */
+}
+
+.logo-container {
+    position: absolute;
+    top: 0.5vh; /* 1% of the viewport height from the top */
+    left: 0.5vw; /* 1% of the viewport width from the left */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-image {
+    height: 4em; /* Assuming the logout button's height is 2em */
+    width: 8em; /* Making the logo a square of the same height */
+    object-fit: contain; /* Ensures the image is fully visible, scaled if necessary */
+    border: 0.1em solid #9cbdd3; /* A nice border color that matches the logout button */
+    border-radius: 0.5em; /* Rounded corners to match the logout button */
+    box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow to the logo similar to the logout button */
+    cursor: pointer;
 }
