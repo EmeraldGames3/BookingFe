@@ -1,6 +1,6 @@
 import React from 'react'
 import './LoginSignUp.css'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import WelcomeHeader from './WelcomePageHeader/WelcomeHeader'
 import ForgotPassword from './ForgotPassword/ForgotPassword'
 import ToggleButton from './ToggleButton/ToggleButton'

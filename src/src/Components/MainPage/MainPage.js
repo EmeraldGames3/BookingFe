@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider'
 import logo from '../Assets/mhp-logo.png';
 import FooterComponent from './FooterComponent/FooterComponent';
 import Map from './Map/Map';
+import api from '../../Api/axios';
 
 const initialDesks = Array.from({ length: 139 }, (_, index) => ({
     id: `desk${index + 1}`,
@@ -74,6 +75,20 @@ export default function MainPage() {
         now.setHours(now.getHours() + 2); // Adjust for timezone
         const timeString = now.toISOString().substring(11, 16); // "HH:MM" format
         setStartTime(timeString);
+
+        const fetchInitialData = async () => {
+            try {
+                const desksResponse = await api.get('/bookings/desks');
+                setDesks(desksResponse.data);
+                
+                const roomsResponse = await api.get('/bookings/rooms');
+                setRooms(roomsResponse.data);
+            } catch (error) {
+                console.error('Failed to fetch desks and rooms:', error);
+            }
+        };
+
+        //fetchInitialData();
     }, [auth, navigate]);
 
     const handleLogout = () => {
@@ -86,19 +101,37 @@ export default function MainPage() {
         return null;
     }
 
-    const handleReserve = (type, id) => {
+    const handleReserve = async (type, id) => {
         if (type === 'desk') {
-          setDesks((prevDesks) =>
-            prevDesks.map((desk) =>
-              desk.id === id ? { ...desk, isFree: false, reservedFrom: startTime, reservedTo: endTime } : desk
-            )
-          );
+            const updatedDesks = desks.map((desk) => (desk.id === id ? updateItem(desk) : desk));
+            setDesks(updatedDesks);
+    
+            // Notify back-end about the desk reservation
+            try {
+                await api.post('/api/reserve/desk', {
+                    id: id,
+                    reservedFrom: startTime,
+                    reservedTo: endTime,
+                });
+                console.log('Desk reservation updated in back-end.');
+            } catch (error) {
+                console.error('Error updating desk reservation:', error);
+            }
         } else if (type === 'room') {
-          setRooms((prevRooms) =>
-            prevRooms.map((room) =>
-              room.id === id ? { ...room, isFree: false, reservedFrom: startTime, reservedTo: endTime } : room
-            )
-          );
+            const updatedRooms = rooms.map((room) => (room.id === id ? updateItem(room) : room));
+            setRooms(updatedRooms);
+    
+            // Notify back-end about the room reservation
+            try {
+                await api.post('/api/reserve/room', {
+                    id: id,
+                    reservedFrom: startTime,
+                    reservedTo: endTime,
+                });
+                console.log('Room reservation updated in back-end.');
+            } catch (error) {
+                console.error('Error updating room reservation:', error);
+            }
         }
       };
 
