@@ -100,20 +100,3 @@
   .selection-dropdown-container {
     margin-top: 1rem; /* Space from the time inputs */
   }
-  
-  /* Additional styles for inputs and labels for uniformity */
-  .input,
-  .select,
-  .reserve-button {
-    display: block;
-    width: 100%; /* Full width */
-    margin: 0.2rem 0; /* Margin for spacing */
-    padding: 0.5rem; /* Padding for larger click area and visual appeal */
-    box-sizing: border-box; /* Ensures padding doesn't add to the width */
-  }
-  
-  label {
-    margin-top: 1rem; /* Adds spacing above the label */
-    display: block; /* Makes label take full width */
-    font-weight: bold; /* Makes the label text bold */
-  }
