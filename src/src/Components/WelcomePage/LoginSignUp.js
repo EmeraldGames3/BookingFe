@@ -50,11 +50,11 @@ export default function LoginSignUp() {
                 //console.log(response.data);
 
                 // Obtain the token
-                const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
+                //const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
 
                 // Log in the user data in the AuthContext
                 setAuth({
-                    token: token, // 'token' contains the Firebase Auth ID token
+                    //token: token, // 'token' contains the Firebase Auth ID token
                     user: response.data,
                     isLoggedIn: true,
                   });
@@ -81,11 +81,11 @@ export default function LoginSignUp() {
 
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 // Obtain the token
-                const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
+                //const token = await userCredential.user.getIdToken(); // This gets the Firebase Auth ID token
 
                 // Log in the user data in the AuthContext
                 setAuth({
-                    token: token, // 'token' contains the Firebase Auth ID token
+                    //token: token, // 'token' contains the Firebase Auth ID token
                     user: userCredential.user, // 'userCredential.user' contains the user information
                     isLoggedIn: true,
                 });

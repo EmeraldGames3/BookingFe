@@ -2,14 +2,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* make sure it takes the full height of its container */
-    width: 100%; /* make sure it takes the full width of its container */
+    height: 50vh; /* you can adjust the height as per your requirement */
+    width: 100%; /* Adjust the width as needed */
+    overflow: auto; /* This will prevent the map from rendering outside its container */
 }
 
-.MapImage {
+.mapImage { 
     max-height: 100%;
     max-width: 100%;
     object-fit: contain; /* This will ensure that the aspect ratio is maintained and the image is scaled to fit */
-    margin-left: 2px solid #000;
 }
 
+.reserved {
+    fill: red; /* Or any indication that the item is reserved */
+}
+
+
+@media (max-width: 768px) { /* Adjustments for mobile devices */
+    .mapClass {
+        height: 50vh; /* You can adjust this value to suit mobile screens */
+    }
+
+    .mapImage {
+        max-width: none; /* Allow the image to be its natural size */
+        width: -webkit-fill-available; /* For iOS devices */
+    }
+}

@@ -23,6 +23,7 @@
     align-items: center; /* Centering desks vertically */
     justify-content: space-around; /* Spacing out desks evenly */
     padding: 2vw; /* Space inside the floor plan area relative to viewport width */
+    overflow: hidden; /* This ensures that if the map is larger than the container, it will be clipped */
 }
 
 .logo-container {
