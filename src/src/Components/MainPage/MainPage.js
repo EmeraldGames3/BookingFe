@@ -56,6 +56,14 @@ export default function MainPage() {
 
     const [selectedItem, setSelectedItem] = useState('');
 
+    const [selectedType, setSelectedType] = useState('desk'); // Add state for tracking type
+
+    // Add a function to handle type change
+    const handleTypeChange = (e) => {
+      setSelectedType(e.target.value);
+      setSelectedItem(''); // Clear selected item when changing types
+    };
+
     useEffect(() => {
         if (!auth.isLoggedIn) {
             navigate('/');
@@ -117,6 +125,8 @@ export default function MainPage() {
                 isConferenceRoom={true}
                 desks={desks} 
                 rooms={rooms}
+                onTypeChange={handleTypeChange}
+                selectedType={selectedType}
                 onReserve={(type, id) => handleReserve(type, id)}
                 />
                 <div className="tables-container">

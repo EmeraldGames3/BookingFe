@@ -1,5 +1,5 @@
 .footer-container {
-    width: calc(100% - 5vw); /* Subtract the left and right padding from the total width */
+    width: calc(100% - 1vw); /* Subtract the left and right padding from the total width */
     margin: 2vh auto 0; /* Space from the top, auto margins on the sides */
     background: #eff0f4; /* Slightly different color for distinction */
     border-radius: 1em; /* Rounded corners */

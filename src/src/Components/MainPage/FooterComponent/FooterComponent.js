@@ -11,7 +11,9 @@ const FooterComponent = ({
   desks,
   rooms,
   isConferenceRoom,
-  onReserve
+  onReserve,
+  onTypeChange,
+  selectedType,
 }) => {
 
   return (
@@ -37,15 +39,25 @@ const FooterComponent = ({
         </label>
       </div>
 
+      <div className="selection-type-container">
+        <label>
+          Type:
+          <select value={selectedType} onChange={onTypeChange}>
+            <option value="desk">Desk</option>
+            <option value="room">Room</option>
+          </select>
+        </label>
+      </div>
+
       <div className="selection-dropdown-container">
         <label>
-          {isConferenceRoom ? 'Room:' : 'Desk:'}
+          {selectedType === 'room' ? 'Room:' : 'Desk:'}
           <select
             value={selectedItem}
             onChange={(e) => setSelectedItem(e.target.value)}
           >
             <option value="">Select an option</option>
-            {(isConferenceRoom ? rooms : desks).map((item) => (
+            {(selectedType === 'room' ? rooms : desks).map((item) => (
               <option key={item.id} value={item.id} disabled={!item.isFree}>
                 {item.id} - {item.isFree ? 'Free' : `Occupied until ${item.reservedTo}`}
               </option>
@@ -56,7 +68,7 @@ const FooterComponent = ({
 
       <button
         className="reserve-button"
-        onClick={() => onReserve(isConferenceRoom ? 'room' : 'desk', selectedItem)}
+        onClick={() => onReserve(selectedType, selectedItem)}
       >
         Reserve
       </button>
