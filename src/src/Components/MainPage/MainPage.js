@@ -70,7 +70,8 @@ export default function MainPage() {
         }
 
         // Set the current time as the default start time
-        const now = new Date();
+        let now = new Date();
+        now.setHours(now.getHours() + 2); // Adjust for timezone
         const timeString = now.toISOString().substring(11, 16); // "HH:MM" format
         setStartTime(timeString);
     }, [auth, navigate]);
